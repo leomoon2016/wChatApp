@@ -3,12 +3,14 @@
    
   text-align:center;
   font-size: 200rpx;
+  color:cornsilk;
   line-height: 280rpx;
   opacity: 0.811;
 }
 .weather{
   text-align:center;
   font-size: 40rpx;
+  color:beige;
   line-height: 56rpx;
   opacity: 0.812;
 }
