@@ -22,7 +22,7 @@ Page({
     nowTemp: '',
     nowWeather: '',
     nowWeatherBackground: '',
-    forecast:[1,2,3,4,5,6,7]
+    forecast: ''
   },
 
   //下拉动作
@@ -67,10 +67,22 @@ Page({
           frontColor: '#000000',
           backgroundColor: weatherColorMap[weather],
         })
+        //set forcast
+        let forecast = []
+        for (let i = 0; i < 24; i += 3) {
+          forecast.push(
 
+            {time:i,
+            iconPath:'/images/sunny-icon.png',
+            temp:'12°'
+            }
+          )
+        }
+
+        this.setData({ forecast: forecast})
 
       },
-      complete :()=> {
+      complete: () => {
         callback && callback()
         //wx.stopPullDownRefresh()
       }

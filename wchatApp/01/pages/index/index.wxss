@@ -1,24 +1,26 @@
 /**index.wxss**/
+
 .temp {
-   
-  text-align:center;
+  text-align: center;
   font-size: 200rpx;
   line-height: 280rpx;
   opacity: 0.811;
 }
-.weather{
-  text-align:center;
+
+.weather {
+  text-align: center;
   font-size: 40rpx;
   line-height: 56rpx;
   opacity: 0.812;
 }
-.weather-wrapper{
+
+.weather-wrapper {
   position: relative;
   padding-top: 174rpx;
   padding-bottom: 250rpx;
-  
 }
-.weather-bg{
+
+.weather-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -47,15 +49,29 @@
   opacity: 0.5;
 }
 
-.forecast-list{
+.forecast-list {
   display: flex;
 }
-.forecast-item{
+
+.forecast-item {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
   width: 120rpx;
-  font-size: 36rpx;
+  align-items: center;
+}
+.forecast-time{
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+.forecast-weather{
+  margin-top: 46rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.forecast-temp{
+  margin-top: 46rpx;
+  font-size: 40rpx;
   line-height: 42rpx;
 }
 
