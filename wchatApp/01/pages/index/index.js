@@ -21,7 +21,8 @@ Page({
   data: {
     nowTemp: '',
     nowWeather: '',
-    nowWeatherBackground: ''
+    nowWeatherBackground: '',
+    forecast:[1,2,3,4,5,6,7]
   },
 
   //下拉动作

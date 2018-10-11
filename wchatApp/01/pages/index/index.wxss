@@ -32,6 +32,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 40rpx;
+  margin-bottom: 20repx;
 }
 
 .timetips-icon {
@@ -55,6 +56,6 @@
   flex-shrink: 0;
   width: 120rpx;
   font-size: 36rpx;
-  line-height: 43rpx;
+  line-height: 42rpx;
 }
 
