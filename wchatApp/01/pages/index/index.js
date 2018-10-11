@@ -22,7 +22,7 @@ Page({
     nowTemp: '',
     nowWeather: '',
     nowWeatherBackground: '',
-    forecast: ''
+    hourlyWeather: ''
   },
 
   //下拉动作
@@ -54,32 +54,9 @@ Page({
       success: res => {
 
         let result = res.data.result
-        let temp = result.now.temp
-        let weather = result.now.weather
-
-        this.setData({
-          nowTemp: temp + '°',
-          nowWeather: weatherMap[weather],
-          nowWeatherBackground: '/images/' + weather + '-bg.png'
-        })
-
-        wx.setNavigationBarColor({
-          frontColor: '#000000',
-          backgroundColor: weatherColorMap[weather],
-        })
-        //set forcast
-        let forecast = []
-        for (let i = 0; i < 24; i += 3) {
-          forecast.push(
-
-            {time:i,
-            iconPath:'/images/sunny-icon.png',
-            temp:'12°'
-            }
-          )
-        }
-
-        this.setData({ forecast: forecast})
+        this.setNow(result)
+        this.setHourlyWeather(result)
+        
 
       },
       complete: () => {
@@ -87,6 +64,44 @@ Page({
         //wx.stopPullDownRefresh()
       }
     })
+  },
+  setNow(result) {
+    let temp = result.now.temp
+    let weather = result.now.weather
 
+    this.setData({
+      nowTemp: temp + '°',
+      nowWeather: weatherMap[weather],
+      nowWeatherBackground: '/images/' + weather + '-bg.png'
+    })
+
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: weatherColorMap[weather],
+    })
+
+  },
+  setHourlyWeather(result) {
+    //set forcast
+    //console.log(result);
+    let forecast = result.forecast
+    let nowHour = new Date().getHours()
+    let hourlyWeather = []
+
+    for (let i = 0; i < 8; i += 1) {
+      hourlyWeather.push(
+
+        {
+          time: (i * 3 + nowHour) % 24,
+          iconPath: '/images/' + forecast[i].weather + '-icon.png',
+          temp: forecast[i].temp + '°'
+        }
+      )
+    }
+    hourlyWeather[0].time = '现在'
+
+    this.setData({
+      hourlyWeather: hourlyWeather
+    })
   }
 })
